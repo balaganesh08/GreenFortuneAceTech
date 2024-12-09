@@ -31,7 +31,29 @@
 	
 	<!-- MODERNIZR MENU -->
 	<script src="js/modernizr.js"></script>
-
+<style>
+	    .step {
+            display: none;
+        }
+        .step.active {
+            display: block;
+        }
+        #bottom-wizard {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        button.backward,
+        button.forward,
+        button.submit {
+            min-width: 120px;
+            padding: 10px 20px;
+        }
+        .text-danger {
+            color: red;
+            font-size: 12px;
+        }
+</style>
 </head>
 
 <body>
@@ -46,15 +68,15 @@
 
 	<div class="container-fluid">
 	    <div class="row row-height">
-	        <div class="col-lg-6 background-image p-0" data-background="url(img/acetechbanner.png)">
+	        <div class="col-lg-6 background-image p-0" data-background="url(img/formbg2.png)">
 	            <div class="content-left-wrapper opacity-mask d-flex align-items-center text-left" data-opacity-mask="rgba(0, 0, 0, 0.2)">
 					<div style="    position: absolute;
 					left: 20px;
 					top: 15px;
 					display: block;
 					height: 35px;">
-	               <img src="https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_1395,h_326/https://thegreenfortune.com/wp-content/uploads/2024/11/Green-Fortune-R.webp#7725" alt="" height="44">
-	               <img src="img/Acetech-logo.svg" alt="" height="44">
+	               <img src="https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_1395,h_326/https://thegreenfortune.com/wp-content/uploads/2024/11/Green-Fortune-R.webp#7725" alt="" height="40">
+	               <img src="img/Acetech-logo.svg" alt="" height="40">
 				</div>
 					<div class="social">
 	                    <ul>
@@ -81,135 +103,149 @@
 	                                <div id="progressbar"></div>
 	                            </div>
 	                            <!-- /top-wizard -->
-	                            <form id="wrapped" method="POST" action="phpmailer/conference_phpmailer_template.php">
-									<input id="website" name="website" type="text" value="">
-									<!-- Leave for security protection, read docs for details -->
-									<div id="middle-wizard">
-										<!-- Step 1: User Details -->
-										<div class="step" id="step-1">
-											<h3 class="main_question">Please fill with your details</h3>
-											<div class="mb-3 form-floating">
-												<input type="text" name="fullname" id="fullname" class="form-control required" placeholder="Full Name">
-												<label for="fullname">Full Name</label>
-											</div>
-											<div class="mb-3 form-floating">
-												<input type="email" name="email" id="email" class="form-control required" placeholder="Your Email">
-												<label for="email">Your Email</label>
-											</div>
-											<div class="form-floating mb-3">
-												<input type="text" name="mobile" id="mobile" class="form-control required" placeholder="Mobile Number">
-												<label for="mobile">Mobile Number</label>
-											</div>
-											<div class="mb-3 form-floating">
-												<select name="profession" id="profession" class="form-control required">
-													<option value="" disabled selected>Select Profession</option>
-													<option value="B2B">B2B</option>
-													<option value="B2C">B2C</option>
-												</select>
-												<label for="profession">Profession</label>
-											</div>
+								<form id="wizard-form" method="POST" action="https://script.google.com/macros/s/AKfycbyvervJDj5w-3bLl_ITicQmkM_gSRs0MSukZ8N5abdf_YiduBjCkjOfPggzuiJNCDq2/exec">
+									<input id="website" name="website" type="text" value="" style="display: none;">
+							
+									<!-- Step 1: User Details -->
+									<div class="step active" id="step-1">
+										<h3 class="main_question">Please fill with your details</h3>
+										<div class="mb-3 form-floating">
+											<input type="text" name="fullname" id="fullname" class="form-control required" placeholder="Full Name">
+											<label for="fullname">Full Name</label>
 										</div>
-										<!-- /Step 1 -->
-								
-										<!-- Step 2: B2B Section -->
-										<div class="step" id="b2b-step" style="display: none;">
-											<h3 class="main_question">What is your requirement?</h3>
-											<div class="mb-3 form-floating">
-												<textarea name="b2b_requirement" id="b2b_requirement" class="form-control" placeholder="How many windows and doors do you want to install, and what is the total sq ft?"></textarea>
-												<label for="b2b_requirement">How many windows and doors do you want to install, and what is the total sq ft?</label>
-											</div>
+										<div class="mb-3 form-floating">
+											<input type="email" name="email" id="email" class="form-control required" placeholder="Your Email">
+											<label for="email">Your Email</label>
 										</div>
-										<!-- /B2B Section -->
-								
-										<!-- Step 3: B2C Section -->
-										<div class="step" id="b2c-step" style="display: none;">
-											<h3 class="main_question">Please select your role</h3>
-											<div class="mb-3 form-floating">
-												<select name="b2c_role" id="b2c_role" class="form-control">
-													<option value="" disabled selected>Select your role</option>
-													<option value="Architect">Architect</option>
-													<option value="Designer">Designer</option>
-													<option value="Other">Other</option>
-												</select>
-												<label for="b2c_role">Select your role</label>
-											</div>
-											<div class="mb-3 form-floating">
-												<textarea name="b2c_requirement" id="b2c_requirement" class="form-control" placeholder="How many windows and doors do you want to install, and what is the total sq ft?"></textarea>
-												<label for="b2c_requirement">How many windows and doors do you want to install, and what is the total sq ft?</label>
-											</div>
+										<div class="form-floating mb-3">
+											<input type="text" name="mobile" id="mobile" class="form-control required" placeholder="Mobile Number">
+											<label for="mobile">Mobile Number</label>
 										</div>
-										<!-- /B2C Section -->
-								
-										<!-- Submit Step -->
-										<div class="submit step" id="submit-step" style="display: none;">
-											<div class="summary">
-												<div class="wrapper">
-													<h3>Thank you<br>for your time!</h3>
-													<p>We will contact you shortly and a summary email will be sent to your email address.</p>
-												</div>
-												<div class="text-center">
-													<div class="form-group terms">
-														<label class="container_check">
-															Please accept our <a href="#" data-bs-toggle="modal" data-bs-target="#terms-txt">Privacy terms</a> before Submit
-															<input type="checkbox" name="terms" value="Yes" class="required">
-															<span class="checkmark"></span>
-														</label>
-													</div>
-												</div>
-											</div>
+										<div class="mb-3 form-floating">
+											<select name="profession" id="profession" class="form-control required">
+												<option value="" disabled selected>Select Profession</option>
+												<option value="B2B">B2B</option>
+												<option value="B2C">B2C</option>
+											</select>
+											<label for="profession">Profession</label>
 										</div>
-										<!-- /Submit Step -->
 									</div>
-									<!-- /middle-wizard -->
-								
+							
+									<!-- Step 2: B2B Section -->
+									<div class="step" id="b2b-step">
+										<h3 class="main_question">What is your requirement?</h3>
+										<div class="mb-3 form-floating">
+											<textarea name="b2b_requirement" id="b2b_requirement" class="form-control required" placeholder="How many windows and doors do you want to install, and what is the total sq ft?"></textarea>
+											<label for="b2b_requirement">Requirement Details</label>
+										</div>
+										<div class="mb-3">
+											<label>
+												<input type="checkbox" name="b2b_consent" class="required"> I agree to the <a href="#">Privacy Policy</a>.
+											</label>
+										</div>
+									</div>
+							
+									<!-- Step 3: B2C Section -->
+									<div class="step" id="b2c-step">
+										<h3 class="main_question">Please select your role</h3>
+										<div class="mb-3 form-floating">
+											<select name="b2c_role" id="b2c_role" class="form-control required">
+												<option value="" disabled selected>Select your role</option>
+												<option value="Architect">Architect</option>
+												<option value="Designer">Designer</option>
+												<option value="Other">Other</option>
+											</select>
+											<label for="b2c_role">Role</label>
+										</div>
+										<div class="mb-3 form-floating">
+											<textarea name="b2c_requirement" id="b2c_requirement" class="form-control required" placeholder="How many windows and doors do you want to install, and what is the total sq ft?"></textarea>
+											<label for="b2c_requirement">Requirement Details</label>
+										</div>
+										<div class="mb-3">
+											<label>
+												<input type="checkbox" name="b2c_consent" class="required"> I agree to the <a href="#">Privacy Policy</a>.
+											</label>
+										</div>
+									</div>
+							
+									<!-- Submit Step -->
+									<div class="step" id="submit-step">
+										<h3>Thank you for your time!</h3>
+										<p>We will contact you shortly, and a summary email will be sent to your email address.</p>
+									</div>
+							
 									<div id="bottom-wizard">
-										<button type="button" id="back-button" class="backward" style="display: none;">Prev</button>
+										<button type="button" id="back-button" class="backward" style="display: none;">Back</button>
 										<button type="button" id="next-button" class="forward">Next</button>
 										<button type="submit" id="submit-button" class="submit" style="display: none;">Submit</button>
 									</div>
-									<!-- /bottom-wizard -->
 								</form>
-								
+							
 								<script>
-									const professionSelect = document.getElementById('profession');
-									const nextButton = document.getElementById('next-button');
-									const backButton = document.getElementById('back-button');
-									const submitButton = document.getElementById('submit-button');
-								
-									const step1 = document.getElementById('step-1');
-									const b2bStep = document.getElementById('b2b-step');
-									const b2cStep = document.getElementById('b2c-step');
-									const submitStep = document.getElementById('submit-step');
-								
-									nextButton.addEventListener('click', () => {
-										const profession = professionSelect.value;
-								
-										if (step1.style.display !== 'none') {
-											step1.style.display = 'none';
-											if (profession === 'B2B') {
-												b2bStep.style.display = 'block';
-												backButton.style.display = 'block';
-											} else if (profession === 'B2C') {
-												b2cStep.style.display = 'block';
-												backButton.style.display = 'block';
-											}
-										} else if (b2bStep.style.display !== 'none' || b2cStep.style.display !== 'none') {
-											b2bStep.style.display = 'none';
-											b2cStep.style.display = 'none';
-											submitStep.style.display = 'block';
-											nextButton.style.display = 'none';
-											submitButton.style.display = 'block';
+									document.addEventListener('DOMContentLoaded', () => {
+										const professionSelect = document.getElementById('profession');
+										const nextButton = document.getElementById('next-button');
+										const backButton = document.getElementById('back-button');
+										const submitButton = document.getElementById('submit-button');
+							
+										const step1 = document.getElementById('step-1');
+										const b2bStep = document.getElementById('b2b-step');
+										const b2cStep = document.getElementById('b2c-step');
+										const submitStep = document.getElementById('submit-step');
+							
+										function validateStep(step) {
+											const inputs = step.querySelectorAll('.required');
+											let isValid = true;
+											step.querySelectorAll('.text-danger').forEach(e => e.remove());
+											inputs.forEach(input => {
+												if (!input.checked && !input.value.trim()) {
+													const error = document.createElement('small');
+													error.className = 'text-danger';
+													error.innerText = `Please fill out this field.`;
+													input.parentNode.appendChild(error);
+													isValid = false;
+												}
+											});
+											return isValid;
 										}
-									});
-								
-									backButton.addEventListener('click', () => {
-										b2bStep.style.display = 'none';
-										b2cStep.style.display = 'none';
-										submitStep.style.display = 'none';
-										step1.style.display = 'block';
-										backButton.style.display = 'none';
-										nextButton.style.display = 'block';
-										submitButton.style.display = 'none';
+							
+										nextButton.addEventListener('click', () => {
+											if (step1.classList.contains('active')) {
+												if (!validateStep(step1)) return;
+												step1.classList.remove('active');
+												professionSelect.value === 'B2B'
+													? b2bStep.classList.add('active')
+													: b2cStep.classList.add('active');
+												backButton.style.display = 'block';
+											} else if (b2bStep.classList.contains('active') || b2cStep.classList.contains('active')) {
+												const activeStep = b2bStep.classList.contains('active') ? b2bStep : b2cStep;
+												if (!validateStep(activeStep)) return;
+												activeStep.classList.remove('active');
+												submitStep.classList.add('active');
+												nextButton.style.display = 'none';
+												submitButton.style.display = 'block';
+											}
+										});
+							
+										backButton.addEventListener('click', () => {
+											if (submitStep.classList.contains('active')) {
+												submitStep.classList.remove('active');
+												professionSelect.value === 'B2B'
+													? b2bStep.classList.add('active')
+													: b2cStep.classList.add('active');
+												nextButton.style.display = 'block';
+												submitButton.style.display = 'none';
+											} else {
+												b2bStep.classList.remove('active');
+												b2cStep.classList.remove('active');
+												step1.classList.add('active');
+												backButton.style.display = 'none';
+											}
+										});
+							
+										document.getElementById('wizard-form').addEventListener('submit', (e) => {
+											if (!validateStep(submitStep)) e.preventDefault();
+										});
 									});
 								</script>
 								
@@ -218,10 +254,6 @@
 	                    </div>
 	                </div>
 	            </div>
-	            <div class="container pb-4 copy">
-				    <span class="float-start">© GreenFortune</span>
-				    <a class="btn_help float-end" href="#modal-help" id="modal_h"><i class="bi bi-question-circle"></i> Help</a><br>
-				</div>
 	        </div>
 	    </div>
 	    <!-- /row -->
@@ -334,43 +366,16 @@
 	</div>
 	<!-- /.modal -->
 
-	<!-- Help form Popup -->
-	<div id="modal-help" class="custom-modal zoom-anim-dialog mfp-hide">
-	    <div class="small-dialog-header">
-	        <h3>Ask Us Anything</h3>
-	        <p class="mb-3">Please fill the form with your questions and<br>we will reply soon!</p>
-	    </div>
-	    <div id="message-help"></div>
-	    <form method="post" action="phpmailer/help.php" id="helpform" autocomplete="off">
-	        <div class="modal-wrapper">
-	            <div class="mb-3 form-floating">
-	                <input type="text" name="fullname" id="fullname" class="form-control" placeholder="Full Name">
-	                <label for="fullname">Full Name</label>
-	            </div>
-	            <div class="mb-3 form-floating">
-	                <input type="email" name="email_help" id="email_help" class="form-control" placeholder="Email Address">
-	                <label for="email_help">Email Address</label>
-	            </div>
-	            <div class="mb-3 form-floating">
-	                <textarea name="message_help" id="message_help" class="form-control short" placeholder="Your Message"></textarea>
-	                <label for="message_help">Your Message</label>
-	            </div>
-	            <div class="mb-5 form-floating">
-	                <input class="form-control" type="text" name="verify_help" id="verify_help" placeholder="Are you human? 3 + 1 =">
-	                <label for="verify_help">Are you human? 3 + 1 =</label>
-	            </div>
-	            <div class="text-center submit"><input type="submit" value="Submit" class="btn_1" id="submit-help"></div>
-	        </div>
-	    </form>
-	</div>
-	<!-- /Help form Popup -->
+
 	
 	<!-- COMMON SCRIPTS -->
 	<script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/common_scripts.min.js"></script>
 	<script src="js/velocity.min.js"></script>
 	<script src="js/functions.js"></script>
-	<script src="phpmailer/validate.js"></script>
+
+
+	
 
 </body>
 </html>

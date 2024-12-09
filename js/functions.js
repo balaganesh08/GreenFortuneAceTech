@@ -9,65 +9,7 @@
 		$('body').delay(350).css({
 			'overflow': 'visible'
 		});
-	})
-	
-	// Submit loader mask 
-	$('form#wrapped').on('submit', function () {
-		var form = $("form#wrapped");
-		form.validate();
-		if (form.valid()) {
-			$("#loader_form").fadeIn();
-		}
 	});
-
-	// Wizard func
-	$("#wizard_container").wizard({
-        stepsWrapper: "#wrapped",
-        submit: ".submit",
-        beforeSelect: function(event, state) {
-            if ($('input#website').val().length != 0) {
-                return false;
-            }
-            if (!state.isMovingForward)
-                return true;
-            var inputs = $(this).wizard('state').step.find(':input');
-            return !inputs.length || !!inputs.valid();
-        }
-    }).validate({
-        errorPlacement: function(error, element) {
-            if (element.is(':radio') || element.is(':checkbox')) {
-                error.insertBefore(element.next());
-            } else {
-                error.insertAfter(element);
-            }
-        }
-    });
-
-    //  Progress bar
-    $("#progressbar").progressbar();
-    $("#wizard_container").wizard({
-        afterSelect: function(event, state) {
-            $("#progressbar").progressbar("value", state.percentComplete);
-            $("#location").text("" + state.stepsComplete + " of " + state.stepsPossible + " completed");
-        }
-    });
-
-    // Validate select
-    $('#wrapped').validate({
-        ignore: [],
-        rules: {
-            select: {
-                required: true
-            }
-        },
-        errorPlacement: function(error, element) {
-            if (element.is('select:hidden')) {
-                error.insertAfter(element.next('.nice-select'));
-            } else {
-                error.insertAfter(element);
-            }
-        }
-    });
 
 	// Header background
 	$('.background-image').each(function(){
@@ -84,15 +26,15 @@
 	
 	// Button start scroll to section
     $('a[href^="#"].btn_scroll_to').on('click', function (e) {
-			e.preventDefault();
-			var target = this.hash;
-			var $target = $(target);
-			$('html, body').stop().animate({
-				'scrollTop': $target.offset().top
-			}, 200, 'swing', function () {
-				window.location.hash = target;
-			});
+		e.preventDefault();
+		var target = this.hash;
+		var $target = $(target);
+		$('html, body').stop().animate({
+			'scrollTop': $target.offset().top
+		}, 200, 'swing', function () {
+			window.location.hash = target;
 		});
+	});
 
 	// Menu
 	var overlayNav = $('.cd-overlay-nav'),
@@ -100,16 +42,16 @@
 		navigation = $('.cd-primary-nav'),
 		toggleNav = $('.cd-nav-trigger');
 
-	//inizialize navigation and content layers
+	// Initialize navigation and content layers
 	layerInit();
 	$(window).on('resize', function(){
 		window.requestAnimationFrame(layerInit);
 	});
 
-	//open/close the menu and cover layers
+	// Open/close the menu and cover layers
 	toggleNav.on('click', function(){
 		if(!toggleNav.hasClass('close-nav')) {
-			//it means navigation is not visible yet - open it and animate navigation layer
+			// Open navigation and animate navigation layer
 			toggleNav.addClass('close-nav');
 			
 			overlayNav.children('span').velocity({
@@ -120,7 +62,7 @@
 				navigation.addClass('fade-in');
 			});
 		} else {
-			//navigation is open - close it and remove navigation layer
+			// Close navigation and remove navigation layer
 			toggleNav.removeClass('close-nav');
 			
 			overlayContent.children('span').velocity({
@@ -195,7 +137,7 @@
 
 	// Countdown
 	setInterval(function() {
-		var target = new Date("June 15 2023 13:30:00 GMT+0100"); //replace with YOUR DATE
+		var target = new Date("June 15 2023 13:30:00 GMT+0100"); // Replace with YOUR DATE
 		var now = new Date();
 		var difference = Math.floor((target.getTime() - now.getTime()) / 1000);
 
@@ -214,9 +156,8 @@
 		$(".countdown #minutes").html(minutes);
 		$(".countdown #hours").html(hours);
 		$(".countdown #days").html(days);
+	}, 200);
 
-		
-	}, 200); 
 	function fixIntegers(integer) {
 		if (integer < 0)
 			integer = 0;
@@ -225,4 +166,4 @@
 		return "" + integer;
 	}
 	
-})(window.jQuery); 
+})(window.jQuery);
