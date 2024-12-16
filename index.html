@@ -4,8 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description"
-		content="GreenFortune, Conference, Workshop, Courses, Seminar, Virtual Event, Wedding">
+	<meta name="description" content="GreenFortune, Conference, Workshop, Courses, Seminar, Virtual Event, Wedding">
 	<meta name="author" content="Ganesh">
 	<title>GreenFortune | Participation Form</title>
 
@@ -61,6 +60,7 @@
 		}
 	</style>
 </head>
+
 <body>
 	<div id="preloader">
 		<div data-loader="circle-side"></div>
@@ -107,22 +107,26 @@
 									<div id="top-wizard">
 										<div id="progressbar"></div>
 									</div>
-						
+
 									<!-- Form -->
-									<form id="wizard-form" method="POST" action="https://script.google.com/a/macros/thegreenfortune.com/s/AKfycbyvervJDj5w-3bLl_ITicQmkM_gSRs0MSukZ8N5abdf_YiduBjCkjOfPggzuiJNCDq2/exec">
+									<form id="wizard-form" method="POST"
+										action="https://script.google.com/macros/s/AKfycbwLBurcJXxKxf0v3d_mJwX-yAoSeKqQdQ-Ie43kSRZ2VYlje7PVKknhrwumeLWZVmk8/exec">
 										<!-- Step 1 -->
 										<div class="step active" id="step-1">
 											<h3 class="main_question">Please fill in your details</h3>
 											<div class="mb-3 form-floating">
-												<input type="text" name="fullname" id="fullname" class="form-control required" placeholder="Full Name">
+												<input type="text" name="fullname" id="fullname"
+													class="form-control required" placeholder="Full Name">
 												<label for="fullname">Full Name</label>
 											</div>
 											<div class="mb-3 form-floating">
-												<input type="email" name="email" id="email" class="form-control required" placeholder="Your Email">
+												<input type="email" name="email" id="email"
+													class="form-control required" placeholder="Your Email">
 												<label for="email">Your Email</label>
 											</div>
 											<div class="mb-3 form-floating">
-												<input type="text" name="mobile" id="mobile" class="form-control required" placeholder="Mobile Number">
+												<input type="text" name="mobile" id="mobile"
+													class="form-control required" placeholder="Mobile Number">
 												<label for="mobile">Mobile Number</label>
 											</div>
 											<div class="mb-3 form-floating">
@@ -134,20 +138,24 @@
 												<label for="profession">Profession</label>
 											</div>
 										</div>
-						
+
 										<!-- Step 2: B2B -->
 										<div class="step" id="b2b-step">
 											<h3 class="main_question">What is your requirement?</h3>
 											<div class="mb-3 form-floating">
-												<textarea name="b2b_requirement" id="b2b_requirement" class="form-control required" placeholder="Requirement Details"></textarea>
+												<textarea name="b2b_requirement" id="b2b_requirement"
+													class="form-control required"
+													placeholder="Requirement Details"></textarea>
 												<label for="b2b_requirement">Requirement Details</label>
 											</div>
 											<div class="mb-3">
-												<input type="checkbox" name="b2b_consent" id="b2b_consent" class="required">
-												<label for="b2b_consent">I agree to the <a href="#">Privacy Policy</a>.</label>
+												<input type="checkbox" name="b2b_consent" id="b2b_consent"
+													class="required">
+												<label for="b2b_consent">I agree to the <a href="#">Privacy
+														Policy</a>.</label>
 											</div>
 										</div>
-						
+
 										<!-- Step 3: B2C -->
 										<div class="step" id="b2c-step">
 											<h3 class="main_question">Please select your role</h3>
@@ -161,31 +169,39 @@
 												<label for="b2c_role">Role</label>
 											</div>
 											<div class="mb-3 form-floating">
-												<textarea name="b2c_requirement" id="b2c_requirement" class="form-control required" placeholder="Requirement Details"></textarea>
+												<textarea name="b2c_requirement" id="b2c_requirement"
+													class="form-control required"
+													placeholder="Requirement Details"></textarea>
 												<label for="b2c_requirement">Requirement Details</label>
 											</div>
 											<div class="mb-3">
-												<input type="checkbox" name="b2c_consent" id="b2c_consent" class="required">
-												<label for="b2c_consent">I agree to the <a href="#">Privacy Policy</a>.</label>
+												<input type="checkbox" name="b2c_consent" id="b2c_consent"
+													class="required">
+												<label for="b2c_consent">I agree to the <a href="#">Privacy
+														Policy</a>.</label>
 											</div>
 										</div>
-						
+
 										<!-- Submit Step -->
-										<div class="step" id="submit-step">
-											<h3>Thank you for your time!</h3>
-											<p>We will contact you shortly, and a summary email will be sent to your email address.</p>
-										</div>
-						
+
+
 										<!-- Navigation Buttons -->
 										<div id="bottom-wizard">
-											<button type="button" id="back-button" class="backward" style="display: none;">Back</button>
+											<button type="button" id="back-button" class="backward"
+												style="display: none;">Back</button>
 											<button type="button" id="next-button" class="forward">Next</button>
-											<button type="submit" id="submit-button" class="submit" style="display: none;">Submit</button>
+											<button type="submit" id="submit-button" class="submit"
+												style="display: none;">Submit</button>
+										</div>
+										<div class="step" id="submit-step">
+											<h3>Thank you for your time!</h3>
+											<p>We will contact you shortly, and a summary email will be sent to your
+												email address.</p>
 										</div>
 									</form>
 								</div>
 							</div>
-						
+
 							<!-- JavaScript -->
 							<script>
 								document.addEventListener('DOMContentLoaded', () => {
@@ -193,12 +209,11 @@
 									const nextButton = document.getElementById('next-button');
 									const backButton = document.getElementById('back-button');
 									const submitButton = document.getElementById('submit-button');
-						
+							
 									const step1 = document.getElementById('step-1');
 									const b2bStep = document.getElementById('b2b-step');
 									const b2cStep = document.getElementById('b2c-step');
-									const submitStep = document.getElementById('submit-step');
-						
+							
 									function validateStep(step) {
 										let isValid = true;
 										step.querySelectorAll('.text-danger').forEach(e => e.remove());
@@ -213,42 +228,71 @@
 										});
 										return isValid;
 									}
-						
+							
 									nextButton.addEventListener('click', () => {
 										if (step1.classList.contains('active')) {
 											if (!validateStep(step1)) return;
 											step1.classList.remove('active');
 											professionSelect.value === 'B2B' ? b2bStep.classList.add('active') : b2cStep.classList.add('active');
 											backButton.style.display = 'block';
-										} else if (b2bStep.classList.contains('active') || b2cStep.classList.contains('active')) {
-											const activeStep = b2bStep.classList.contains('active') ? b2bStep : b2cStep;
-											if (!validateStep(activeStep)) return;
-											activeStep.classList.remove('active');
-											submitStep.classList.add('active');
-											nextButton.style.display = 'none';
-											submitButton.style.display = 'block';
+											nextButton.style.display = 'none'; // Hide Next button
+											submitButton.style.display = 'block'; // Show Submit button
 										}
 									});
-						
+							
 									backButton.addEventListener('click', () => {
-										if (submitStep.classList.contains('active')) {
-											submitStep.classList.remove('active');
-											professionSelect.value === 'B2B' ? b2bStep.classList.add('active') : b2cStep.classList.add('active');
-											nextButton.style.display = 'block';
-											submitButton.style.display = 'none';
-										} else {
-											b2bStep.classList.remove('active');
-											b2cStep.classList.remove('active');
-											step1.classList.add('active');
-											backButton.style.display = 'none';
-										}
+										b2bStep.classList.remove('active');
+										b2cStep.classList.remove('active');
+										step1.classList.add('active');
+										backButton.style.display = 'none';
+										nextButton.style.display = 'block'; // Show Next button
+										submitButton.style.display = 'none'; // Hide Submit button
 									});
-						
+							
 									document.getElementById('wizard-form').addEventListener('submit', (e) => {
-										if (!validateStep(submitStep)) e.preventDefault();
+										e.preventDefault(); // Prevent the default form submission
+							
+										// Get form data
+										const formData = new FormData(e.target);
+							
+										// Check consent fields
+										const b2bConsent = document.getElementById('b2b_consent')?.checked ? 'Accepted' : 'Not Accepted';
+										const b2cConsent = document.getElementById('b2c_consent')?.checked ? 'Accepted' : 'Not Accepted';
+							
+										// Append consent fields to form data
+										formData.append('b2b_consent_status', b2bConsent);
+										formData.append('b2c_consent_status', b2cConsent);
+							
+										// Submit the form via fetch
+										fetch(e.target.action, {
+											method: e.target.method,
+											body: formData,
+										})
+											.then(response => {
+												if (response.ok) {
+													// Update the active step with a success message
+													const activeStep = professionSelect.value === 'B2B' ? b2bStep : b2cStep;
+													activeStep.innerHTML = `
+														<h3>Submission Successful!</h3>
+														<p>Thank you for submitting your details. We will contact you shortly.</p>
+														
+													`;
+							
+													// Hide navigation buttons after submission
+													nextButton.style.display = 'none';
+													submitButton.style.display = 'none';
+													backButton.style.display = 'none';
+												} else {
+													console.error('Form submission failed:', response.statusText);
+												}
+											})
+											.catch(error => {
+												console.error('Error during form submission:', error);
+											});
 									});
 								});
 							</script>
+							
 
 						</div>
 					</div>
@@ -265,4 +309,5 @@
 	<script src="js/functions.js"></script>
 
 </body>
+
 </html>
