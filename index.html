@@ -110,7 +110,7 @@
 
 									<!-- Form -->
 									<form id="wizard-form" method="POST"
-										action="https://script.google.com/macros/s/AKfycbwLBurcJXxKxf0v3d_mJwX-yAoSeKqQdQ-Ie43kSRZ2VYlje7PVKknhrwumeLWZVmk8/exec">
+										action="https://script.google.com/macros/s/AKfycbwpgG5WG0Y--YHkFuctEzVQYivzILOW6JU141zZC5XUcNOV6KLak_T9b4x4dR5Ktjk5/exec">
 										<!-- Step 1 -->
 										<div class="step active" id="step-1">
 											<h3 class="main_question">Please fill in your details</h3>
@@ -140,6 +140,7 @@
 										</div>
 
 										<!-- Step 2: B2B -->
+										<!-- Step 2: B2B -->
 										<div class="step" id="b2b-step">
 											<h3 class="main_question">What is your requirement?</h3>
 											<div class="mb-3 form-floating">
@@ -147,6 +148,13 @@
 													class="form-control required"
 													placeholder="Requirement Details"></textarea>
 												<label for="b2b_requirement">Requirement Details</label>
+											</div>
+											<div class="mb-3 form-floating">
+												<textarea name="b2b_installation_details" id="b2b_installation_details"
+													class="form-control required"
+													placeholder="How many windows and doors do you want to install, and what is the total sq ft?"></textarea>
+												<label for="b2b_installation_details">How many windows and doors do you
+													want to install, and what is the total sq ft?</label>
 											</div>
 											<div class="mb-3">
 												<input type="checkbox" name="b2b_consent" id="b2b_consent"
@@ -156,6 +164,7 @@
 											</div>
 										</div>
 
+
 										<!-- Step 3: B2C -->
 										<div class="step" id="b2c-step">
 											<h3 class="main_question">Please select your role</h3>
@@ -163,7 +172,9 @@
 												<select name="b2c_role" id="b2c_role" class="form-control required">
 													<option value="" disabled selected>Select your role</option>
 													<option value="Architect">Architect</option>
-													<option value="Designer">Designer</option>
+													<option value="Designer">Interior Designer</option>
+													<option value="Retail">Retail</option>
+													<option value="Industrial">Industrial</option>
 													<option value="Other">Other</option>
 												</select>
 												<label for="b2c_role">Role</label>
@@ -173,6 +184,13 @@
 													class="form-control required"
 													placeholder="Requirement Details"></textarea>
 												<label for="b2c_requirement">Requirement Details</label>
+											</div>
+											<div class="mb-3 form-floating">
+												<textarea name="b2c_installation_details" id="b2c_installation_details"
+													class="form-control required"
+													placeholder="How many windows and doors do you want to install, and what is the total sq ft?"></textarea>
+												<label for="b2c_installation_details">How many windows and doors do you
+													want to install, and what is the total sq ft?</label>
 											</div>
 											<div class="mb-3">
 												<input type="checkbox" name="b2c_consent" id="b2c_consent"
@@ -209,11 +227,11 @@
 									const nextButton = document.getElementById('next-button');
 									const backButton = document.getElementById('back-button');
 									const submitButton = document.getElementById('submit-button');
-							
+
 									const step1 = document.getElementById('step-1');
 									const b2bStep = document.getElementById('b2b-step');
 									const b2cStep = document.getElementById('b2c-step');
-							
+
 									function validateStep(step) {
 										let isValid = true;
 										step.querySelectorAll('.text-danger').forEach(e => e.remove());
@@ -228,7 +246,7 @@
 										});
 										return isValid;
 									}
-							
+
 									nextButton.addEventListener('click', () => {
 										if (step1.classList.contains('active')) {
 											if (!validateStep(step1)) return;
@@ -239,7 +257,7 @@
 											submitButton.style.display = 'block'; // Show Submit button
 										}
 									});
-							
+
 									backButton.addEventListener('click', () => {
 										b2bStep.classList.remove('active');
 										b2cStep.classList.remove('active');
@@ -248,21 +266,21 @@
 										nextButton.style.display = 'block'; // Show Next button
 										submitButton.style.display = 'none'; // Hide Submit button
 									});
-							
+
 									document.getElementById('wizard-form').addEventListener('submit', (e) => {
 										e.preventDefault(); // Prevent the default form submission
-							
+
 										// Get form data
 										const formData = new FormData(e.target);
-							
+
 										// Check consent fields
-										const b2bConsent = document.getElementById('b2b_consent')?.checked ? 'Accepted' : 'Not Accepted';
-										const b2cConsent = document.getElementById('b2c_consent')?.checked ? 'Accepted' : 'Not Accepted';
-							
+										const b2bConsent = document.getElementById('b2b_consent')?.checked ? 'Accepted' : ' ';
+										const b2cConsent = document.getElementById('b2c_consent')?.checked ? 'Accepted' : '';
+
 										// Append consent fields to form data
 										formData.append('b2b_consent_status', b2bConsent);
 										formData.append('b2c_consent_status', b2cConsent);
-							
+
 										// Submit the form via fetch
 										fetch(e.target.action, {
 											method: e.target.method,
@@ -277,7 +295,7 @@
 														<p>Thank you for submitting your details. We will contact you shortly.</p>
 														
 													`;
-							
+
 													// Hide navigation buttons after submission
 													nextButton.style.display = 'none';
 													submitButton.style.display = 'none';
@@ -292,7 +310,7 @@
 									});
 								});
 							</script>
-							
+
 
 						</div>
 					</div>
